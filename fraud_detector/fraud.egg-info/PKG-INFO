@@ -1,3 +1,20 @@
+Metadata-Version: 2.1
+Name: fraud
+Version: 0.0.1
+Summary: Description of your project
+Home-page: https://github.com/davidpd7/tfm3
+Author: David Perez
+Author-email: david.5697.9@gmail.com
+Classifier: License: MIT License
+Classifier: Programming Language : 3.11.5
+Requires-Dist: pandas==2.1.4
+Requires-Dist: numpy
+Requires-Dist: scikit-learn==1.2.2
+Requires-Dist: joblib
+Requires-Dist: PyQt6==6.6.1
+Requires-Dist: optbinning
+Requires-Dist: ortools==9.7.2996
+
 # Fraud Detection App
 
 ## Overview

@@ -1,0 +1,2 @@
+[console_scripts]
+fraud-detector = fraud.__main__:main
