@@ -1,0 +1,191 @@
+{
+    "app": {
+        "name":"fraud",
+        "version": "0.0.1",
+        "install_requieres": ["pandas==2.1.4", "numpy", "scikit-learn==1.2.2", "joblib", "PyQt6==6.6.1", "optbinning", "ortools==9.7.2996"],
+        "author":"David Perez",
+        "author_email": "david.5697.9@gmail.com",
+        "url": "https://github.com/davidpd7/tfm3",
+        "classifiers" : ["License: MIT License",
+                        "Programming Language : 3.11.5"
+                    ],
+        "title": "Fraud Detector",
+        "geometry": [360, 180],
+        "icon_path": ["fraud.assets.images", "app_icon.ico"]
+        },
+    "view": {
+        "combo_box":[
+                "Accuracy",
+                "Sensitivity",
+                "Balanced"
+            ],
+        "buttons":{
+            "button_size": [100, 40],
+            "style": {
+                "background-color": "#ffffff",
+                "font-size": "11px",
+                "border": "3px solid #ddd",
+                "font-family": "Segoe UI",
+                "font-weight": "italic",
+                "color": "#100",
+                "padding": "5px 5px",
+                "border-radius": "15px"
+            },
+            "push_buttons": {
+                    "push_buttons1": {
+                        "name": "Process Data",
+                        "pos": [1, 0]
+                    },
+                    "push_buttons2": {
+                        "name": "Predict",
+                        "pos": [1, 1]
+                    },
+                    "push_buttons3": {
+                        "name": "Compare Results",
+                        "pos": [1, 2]
+                    }
+                }
+        },
+        "menu_bar": {
+            "file_menu": {
+                "name": "File",
+                "submenu1":{
+                    "name": "Import",
+                    "option1" : "Import data..",
+                    "option3" : "Import test data.."
+                    },
+                "submenu2":{
+                    "name": "Export",
+                    "option2" : "Export template..",
+                    "option4" : "Export predictions.."
+                    }
+            },
+            "info_menu": {
+                "name": "Info",
+                "option1": {
+                    "name":"Instructions"
+                },
+                "option2":{
+                    "name":"Version"
+                }
+            }
+        }
+    },
+
+    "packages":{ 
+        "predictors":{
+            "model_1":{
+                "name": "Random Forest Classifier",
+                "key_quality" : "Accuracy",
+                "code": "model_1",
+                "path" : ["fraud.assets.packages.predictors.files","RandomForestClassifier.pkl"],
+                "metrics":{
+                        "Accuracy": 0.997618,
+                        "ROC Score": 0.855771,
+                        "F1 Score": 0.697855,
+                        "Precision Score": 0.683505,
+                        "Recall Score": 0.712821
+                    }
+                },
+            "model_2": {
+                "name" : "Random Forest Classifier Tunning",
+                "key_quality" : "Balanced",
+                "code": "model_2",
+                "path" : ["fraud.assets.packages.predictors.files", "GridSearchCV.pkl"],
+                "metrics": {
+                    "Accuracy": 0.963993,
+                    "ROC Score": 0.93897,
+                    "F1 Score": 0.163811,
+                    "Precision Score": 0.08997,
+                    "Recall Score": 0.913753
+                }
+                },
+            "model_3":  {
+                "name" : "Logistic Regression",
+                "key_quality" : "Sensitivity", 
+                "code": "model_3",
+                "path":["fraud.assets.packages.predictors.files", "LogisticRegression.pkl"],
+                "metrics": {
+                    "Accuracy": 0.913300,
+                    "ROC Score": 0.910507,
+                    "F1 Score": 0.074777,
+                    "Precision Score": 0.038995,
+                    "Recall Score": 0.907692
+                }
+                }
+            },
+        "transformers":{
+            "binning_amt":{
+                        "name": "Amount Binner",
+                        "path" : ["fraud.assets.packages.transformers.files", "optb_amt.joblib"]
+                    },
+            "binning_meandiff":{
+                        "name" : "Difference in means binner",
+                        "path" : ["fraud.assets.packages.transformers.files", "optb_meandiff.joblib"]}
+                        ,
+            "binning_tslt":{
+                        "name" : "Difference in time last transaction binner", 
+                        "path" : ["fraud.assets.packages.transformers.files","optb_tslt.joblib"]
+                    },
+            "preprocessor":{
+                        "name" : "Preprocessor",
+                        "path" : ["fraud.assets.packages.transformers.files","preprocessor.joblib"]
+                    }
+            }       
+        },
+    "template": {
+        "filename": "template_fraud.csv",
+        "mandatory_indicator": "*",
+        "columns": {
+            "datetime": {
+                "transaction": "trans_date_trans_time",
+                "date_of_birth": "dob"
+            },
+            "mandatory": [
+                "trans_date_trans_time",
+                "amt",
+                "lat",
+                "long",
+                "city_pop",
+                "unix_time",
+                "merch_lat",
+                "merch_long",
+                "dob",
+                "gender",
+                "category"
+            ],
+            "non_mandatory": ["first", "last", "street", "city", "state", "job"]
+        }
+    },
+    "transformed_data": {
+        "columns": {
+            "datetime": {
+                "transaction_day": "transaction_day",
+                "transaction_hour": "transaction_hour",
+                "transaction_age": "age",
+                "unix_time":"unix_time",
+                "time_since_last_transaction":"time_since_last_transaction",
+                "number_days_year": 365
+            },
+            "transformations" :{
+                "credit_card_number" :"cc_num",
+                "mean_transaction_amount":"mean_transaction_amount",
+                "transaction_amount_diff" :"transaction_amount_diff"
+            },
+            "binned": {
+                "amount": "amt",
+                "amount_binned": "amt_binned",
+                "transaction_amount_diff":"transaction_amount_diff_binned",
+                "time_since_last_transaction":"time_since_last_transaction_binned"
+            },
+            "numerical" : ["lat", "long", "merch_lat", "merch_long", "age", "transaction_hour","transaction_day"],
+            "categorical" : ["gender", "category", "amt_binned", "time_since_last_transaction_binned", "transaction_amount_diff_binned"]
+        }
+    },
+    "predictions": {
+        "filename": "predictions.csv"
+    }  
+    
+}
+
+

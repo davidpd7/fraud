@@ -1,0 +1,20 @@
+# Ignorar directorios de caché de Python
+__pycache__/
+
+# Ignorar archivos de código compilado de Python
+*.pyc
+
+# Ignorar archivos optimizados de Python
+*.pyo
+
+# Ignorar archivos de extensión compilados de Python
+*.pyd
+
+# Ignorar directorios de distribución
+dist/
+
+# Ignorar directorios de construcción
+build/
+
+# Ignorar directorios con información del huevo (egg) del paquete
+*.egg-info/
