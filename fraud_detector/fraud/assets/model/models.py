@@ -193,7 +193,7 @@ class Model:
         return metrics
         
 
-    def __test_predictions(self, target_column="is_fraud"):
+    def get_test(self, target_column="is_fraud"):
         """
         Reads the specified target column from the test file and returns it as a pandas Series.
 
@@ -222,7 +222,7 @@ class Model:
         """
 
         if self.__test == True and self.__predictions is not None:
-            test = self.__test_predictions()
+            test = self.get_test()
             cm = confusion_matrix(y_true=test, y_pred=self.__predictions, normalize="true")
             return cm
     
