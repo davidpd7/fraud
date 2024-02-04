@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Fraud Detection App is a comprehensive tool designed for fraud detection tasks, providing a user-friendly interface and programmable functionality for seamless integration into Python scripts. This README provides an overview of the app's components, functionalities, and usage instructions.
+The Fraud Detection App is a comprehensive tool designed for fraud detection tasks, providing a user-friendly interface and programmable functionality for integration into Python scripts. This README provides an overview of the app's components, functionalities, and usage instructions.
 
 ## Installation
 
