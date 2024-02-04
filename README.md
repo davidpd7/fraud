@@ -117,7 +117,7 @@ The Controller class acts as an intermediary between the Model and View, facilit
 The app utilizes a configuration file (config.json) for settings, including model paths, UI styles, and other parameters.
 
 ## Machine Learning Models
-The app includes three pre-trained models: Model 1 (Gradient Boosting), Model 2 (Grid Search with Random Forest), and Model 3 (Random Forest). 
+The app includes three pre-trained models: Model 1 (Logistic Regression), Model 2 (Grid Search with Random Forest), and Model 3 (Random Forest). 
 
 ## Machine Learning Model Descriptions
 
