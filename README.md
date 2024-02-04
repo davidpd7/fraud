@@ -95,12 +95,10 @@ Exports data to a CSV file.
 - `None or str`: None if data is not available, otherwise, the path to the exported CSV file.
 
 
-Use the provided methods to perform various tasks programmatically.
-
-### User Interface
+## User Interface
 The UI features buttons for data processing, model prediction, and result analysis. Menus provide options for importing/exporting data, accessing instructions, and viewing the app version.
 
-### Data Processing
+## Data Processing
 The app processes data based on a template (template_fraud.csv). It validates columns, transforms datetime features...
 
 ## Components
@@ -118,8 +116,6 @@ The app utilizes a configuration file (config.json) for settings, including mode
 
 ## Machine Learning Models
 The app includes three pre-trained models: Model 1 (Logistic Regression), Model 2 (Grid Search with Random Forest), and Model 3 (Random Forest). 
-
-## Machine Learning Model Descriptions
 
 ### Model 1 - RandomForestClassifier (model_1)
 
