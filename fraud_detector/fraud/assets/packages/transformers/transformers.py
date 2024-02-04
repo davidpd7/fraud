@@ -1,5 +1,4 @@
 import joblib
-import os
 from importlib import resources
 
 from fraud.assets.config.config import cfg_item

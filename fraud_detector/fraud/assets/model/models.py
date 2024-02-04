@@ -109,25 +109,28 @@ class Model:
             return None
 
 
-    def get_data_processed(self, data_path=None):
-
+    def get_data_processed(self, data_source=None, is_path=True):
         """
-        Retrieves and processes data from a CSV file using predefined transformations.
+        Retrieves and processes data from a CSV file or DataFrame using predefined transformations.
 
-        - Calls the get_data method to obtain a DataFrame from the specified CSV file.
+        - If is_path is True, calls the get_data method to obtain a DataFrame from the specified CSV file.
+        - If is_path is False, assumes data_source is a DataFrame.
         - If data is successfully obtained, performs datetime check, data transformation,
         optimal binning, and additional transformations using a predefined pipeline.
         - Returns the processed DataFrame.
 
         Args:
-            data_path (str, optional): Path to the CSV file.
+            data_source (str or pd.DataFrame, optional): Path to the CSV file or DataFrame.
+            is_path (bool, optional): If True, treat data_source as a file path. If False, treat data_source as a DataFrame.
 
         Returns:
             pd.DataFrame or None: The processed DataFrame, or None if an error occurs during data retrieval or processing.
         """
-        
-        data = self.get_data(data_path)
-        
+        if is_path:
+            data = self.get_data(data_source)
+        else:
+            data = data_source
+
         if data is None:
             return None
 
@@ -136,7 +139,6 @@ class Model:
             data = pipeline.optimal_binning(data)
             processed_data = pipeline.transformer(data)
             return processed_data
-    
 
     def predictor(self, model:str, data_path=None):
 

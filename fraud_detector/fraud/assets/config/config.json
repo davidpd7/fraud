@@ -5,7 +5,7 @@
         "install_requieres": ["pandas==2.1.4", "numpy", "scikit-learn==1.2.2", "joblib", "PyQt6==6.6.1", "optbinning", "ortools==9.7.2996"],
         "author":"David Perez",
         "author_email": "david.5697.9@gmail.com",
-        "url": "https://github.com/davidpd7/tfm3",
+        "url": "https://github.com/davidpd7/fraud",
         "classifiers" : ["License: MIT License",
                         "Programming Language : 3.11.5"
                     ],

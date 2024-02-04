@@ -8,11 +8,11 @@ The Fraud Detection App is a comprehensive tool designed for fraud detection tas
 
 You can install the Fraud Detection App as a Python package using the following command:
 
-pip install fraud-detection-app
+pip install fraud
 
 ## Usage
 
-### User Interface (UI)
+This app allows the user with two different ways to use it. For one side, a friendly UI, as well as via pip installer. Both alternatives contain the same functionalies. See below instructions for each option.
 
 ### Programmatically
 
@@ -23,7 +23,6 @@ from fraud.assets.model.models import Model
 Instantiate Model:
 
 model = Model()
-
 
 #### `model.get_data(data_path=None)`
 
@@ -98,6 +97,12 @@ Exports data to a CSV file.
 
 Use the provided methods to perform various tasks programmatically.
 
+### User Interface
+The UI features buttons for data processing, model prediction, and result analysis. Menus provide options for importing/exporting data, accessing instructions, and viewing the app version.
+
+### Data Processing
+The app processes data based on a template (template_fraud.csv). It validates columns, transforms datetime features...
+
 ## Components
 1. Model
 The Model class handles data processing, model prediction, and result analysis. It utilizes configurations and predefined models.
@@ -113,12 +118,6 @@ The app utilizes a configuration file (config.json) for settings, including mode
 
 ## Machine Learning Models
 The app includes three pre-trained models: Model 1 (Gradient Boosting), Model 2 (Grid Search with Random Forest), and Model 3 (Random Forest). 
-
-## User Interface
-The UI features buttons for data processing, model prediction, and result analysis. Menus provide options for importing/exporting data, accessing instructions, and viewing the app version.
-
-## Data Processing
-The app processes data based on a template (template_fraud.csv). It validates columns, transforms datetime features...
 
 ## Machine Learning Model Descriptions
 

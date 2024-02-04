@@ -7,13 +7,6 @@ Author: David Perez
 Author-email: david.5697.9@gmail.com
 Classifier: License: MIT License
 Classifier: Programming Language : 3.11.5
-Requires-Dist: pandas==2.1.4
-Requires-Dist: numpy
-Requires-Dist: scikit-learn==1.2.2
-Requires-Dist: joblib
-Requires-Dist: PyQt6==6.6.1
-Requires-Dist: optbinning
-Requires-Dist: ortools==9.7.2996
 
 # Fraud Detection App
 
@@ -41,76 +34,75 @@ Instantiate Model:
 
 model = Model()
 
-# Functions Documentation
 
-## `get_data(data_path=None)`
+#### `model.get_data(data_path=None)`
 
 Retrieves data from a CSV file and performs a column correctness check.
 
-### Parameters:
+##### Parameters:
 - `data_path` (str, optional): Path to the CSV file. If None, uses the browsed file path.
 
-### Returns:
+##### Returns:
 - `pd.DataFrame or None`: The DataFrame containing the imported data, or None if an error occurs.
 
-## `get_data_processed(data_path=None)`
+#### `model.get_data_processed(data_path=None)`
 
 Retrieves and processes data from a CSV file using predefined transformations.
 
-### Parameters:
+##### Parameters:
 - `data_path` (str, optional): Path to the CSV file.
 
-### Returns:
+##### Returns:
 - `pd.DataFrame or None`: The processed DataFrame, or None if an error occurs during data retrieval or processing.
 
-## `predictor(model:str, data_path=None)`
+#### `model.predictor(model:str, data_path=None)`
 
 Predicts outcomes using a specified machine learning model.
 
-### Parameters:
+##### Parameters:
 - `model` (str): Code representing the desired machine learning model.
 - `data_path` (str, optional): Path to the CSV file.
 
-### Returns:
+##### Returns:
 - `pd.DataFrame or None`: The predictions DataFrame, or None if an error occurs during data retrieval or processing.
 
-## `model_metrics(model:str)`
+#### `model.model_metrics(model:str)`
 
 Retrieves the evaluation metrics associated with a specified machine learning model.
 
-### Parameters:
+##### Parameters:
 - `model` (str): Code representing the machine learning model.
 
-### Returns:
+##### Returns:
 - `dict`: A dictionary containing evaluation metrics for the specified model.
 - `None`: If the model code is not found in the configuration.
 
-## `__test_predictions(target_column="is_fraud")`
+#### `model.test_predictions(target_column="is_fraud")`
 
 Reads the specified target column from the test file and returns it as a pandas Series.
 
-### Parameters:
+##### Parameters:
 - `target_column` (str, optional): The name of the target column. Defaults to "is_fraud".
 
-### Returns:
+##### Returns:
 - `pd.Series`: The specified target column from the test file.
 
-## `compare_results()`
+#### `model.compare_results()`
 
 Compares test results with predicted outcomes and returns a normalized confusion matrix.
 
-### Returns:
+##### Returns:
 - `np.ndarray or None`: The normalized confusion matrix or None if testing or predictions are not available.
 
-## `export_data(process_type:str, path=None)`
+#### `model.export_data(process_type:str, path=None)`
 
 Exports data to a CSV file.
 
-### Parameters:
+##### Parameters:
 - `process_type` (str): The type of process, e.g., "template" or "predictions".
 - `path` (str, optional): The path where the CSV file will be saved. If not provided, the file will be saved in the current working directory.
 
-### Returns:
+##### Returns:
 - `None or str`: None if data is not available, otherwise, the path to the exported CSV file.
 
 

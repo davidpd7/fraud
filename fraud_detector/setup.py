@@ -30,7 +30,6 @@ setup(
     author=cfg_item("app", "author"),
     author_email=cfg_item("app", "author_email"),
     description='Description of your project',
-    long_description=open('README.md').read(),
     url=cfg_item("app", "url"),
     classifiers=cfg_item("app", "classifiers")
 )
