@@ -12,9 +12,9 @@ pip install fraud
 
 ## Usage
 
-This app allows the user with two different ways to use it. For one side, a friendly UI, as well as via pip installer. Both alternatives contain the same functionalies. See below instructions for each option.
+This app allows the user with two different ways to use it. For one side, a friendly UI, as well as via python packages. Both alternatives contain the same functionalies. See below instructions for each option.
 
-### Programmatically
+### Python Package
 
 Import Classes:
 
