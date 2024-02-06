@@ -34,23 +34,25 @@ Retrieves data from a CSV file and performs a column correctness check.
 ##### Returns:
 - `pd.DataFrame or None`: The DataFrame containing the imported data, or None if an error occurs.
 
-#### `model.get_data_processed(data_path=None)`
+#### `get_data_processed(data_source=None, is_path=True)`
 
-Retrieves and processes data from a CSV file using predefined transformations.
+Retrieves and processes data from a CSV file or DataFrame using predefined transformations.
 
 ##### Parameters:
-- `data_path` (str, optional): Path to the CSV file.
+- `data_source` (str or pd.DataFrame, optional): Path to the CSV file or DataFrame.
+- is_path (bool, optional): If True, treat data_source as a file path. If False, treat data_source as a DataFrame.
 
 ##### Returns:
 - `pd.DataFrame or None`: The processed DataFrame, or None if an error occurs during data retrieval or processing.
 
-#### `model.predictor(model:str, data_path=None)`
+#### `predictor(model:str, data_source=None, is_path=True)`
 
 Predicts outcomes using a specified machine learning model.
 
 ##### Parameters:
 - `model` (str): Code representing the desired machine learning model.
-- `data_path` (str, optional): Path to the CSV file.
+- `data_source` (str or pd.DataFrame, optional): Path to the CSV file or DataFrame.
+- `is_path` (bool, optional): If True, treat data_source as a file path. If False, treat data_source as a DataFrame.
 
 ##### Returns:
 - `pd.DataFrame or None`: The predictions DataFrame, or None if an error occurs during data retrieval or processing.
