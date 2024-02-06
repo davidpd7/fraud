@@ -10,6 +10,7 @@ from fraud.assets.view.version.version import VersionWindow
 class Controller:
 
     def __init__(self, view, model):
+        
         """
         Initializes the Controller with a specified view and model.
 
@@ -137,16 +138,7 @@ class Controller:
         except:
             return None
     
-    def __on_buttonversion_clicked(self):
-        name = cfg_item("app", "name")
-        author = cfg_item("app", "author")
-        author_email = cfg_item("app", "author_email")
-        version = cfg_item("app", "version")
-        url = cfg_item("app", "url")
-        result = (f"{author}\n{author_email}\n{name} {version}\n{url}")
-        self.__view.display_message(result, "vermenu")
 
-    
     def format_confusion_matrix(self, matrix):
 
         """

@@ -12,16 +12,20 @@ class Pipeline:
     """
 
     def __init__(self):
+
         """
         Initializes the Pipeline class by setting up configuration items and transformers.
         """
+
         self.__setup_configuration()
         self.__setup_transformers()
 
     def __setup_configuration(self):
+
         """
         Sets up configuration items used in the pipeline.
         """
+
         self._transaction_column = cfg_item("template", "columns", "datetime", "transaction")
         self._date_of_birth_column = cfg_item("template", "columns", "datetime", "date_of_birth")
         self._amount_column = cfg_item("transformed_data", "columns", "binned", "amount")
@@ -30,14 +34,17 @@ class Pipeline:
         self._time_since_last_transaction = cfg_item("transformed_data", "columns", "datetime", "time_since_last_transaction")
 
     def __setup_transformers(self):
+
         """
         Sets up transformers used in the pipeline.
         """
+
         self._amt_binner = transformer.get_transformer("binning_amt")
         self._tslt_binner = transformer.get_transformer("binning_tslt")
         self._meandiff_binner = transformer.get_transformer("binning_meandiff")
         
     def datetime_check(self, data:pd.DataFrame):
+        
         """
         Checks and converts specified columns to datetime format.
 
@@ -47,6 +54,7 @@ class Pipeline:
         Returns:
             bool or None: True if datetime conversion is successful, None if an error occurs.
         """
+
         date_time_columns = [self._transaction_column, self._date_of_birth_column]
         try:
             for column in date_time_columns:
@@ -58,6 +66,7 @@ class Pipeline:
 
 
     def data_transformation(self, data:pd.DataFrame):
+
         """
         Performs data transformations on the provided DataFrame.
 
@@ -66,6 +75,7 @@ class Pipeline:
 
         Returns:
             pd.DataFrame: The DataFrame with added transformed columns.
+
         """
         try:
             mean_transaction_amount_col = cfg_item("transformed_data", "columns", "transformations", "mean_transaction_amount")
@@ -89,6 +99,7 @@ class Pipeline:
             return None
 
     def optimal_binning(self, data):
+
         """
         Applies optimal binning to specified columns in the provided DataFrame.
 
@@ -98,6 +109,7 @@ class Pipeline:
         Returns:
             pd.DataFrame or None: The DataFrame with added binned columns or None if an error occurs.
         """
+
         amount_binned_col = cfg_item("transformed_data", "columns", "binned", "amount_binned")
         transaction_amount_diff_binned_col = cfg_item("transformed_data", "columns", "binned", "transaction_amount_diff")
         time_since_last_transaction_binned_col = cfg_item("transformed_data", "columns", "binned", "time_since_last_transaction")
@@ -114,6 +126,7 @@ class Pipeline:
 
 
     def transformer(self, data):
+
         """
         Applies the transformer to the specified numerical and categorical columns in the provided DataFrame.
 
@@ -123,6 +136,7 @@ class Pipeline:
         Returns:
             pd.DataFrame or None: The transformed DataFrame or None if an error occurs.
         """
+        
         numerical_cols = cfg_item("transformed_data", "columns", "numerical")
         categorical_cols = cfg_item("transformed_data", "columns", "categorical")
 

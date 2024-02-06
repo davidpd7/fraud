@@ -64,13 +64,16 @@ class Model:
     
 
     def browse(self, process_type):
+        
         """
         Initiates a file browsing dialog to select a file and performs export or other actions based on the process_type.
+        Function only compatible with UI app.
 
         Parameters:
             process_type (str): The type of process, e.g., "template" or "test".
 
         """
+        
         if process_type == "template":
             self.__browsing = True
             self.__browsed_filename, _ = QFileDialog.getOpenFileName(None, "Open Template File", "", "CSV Files (*.csv);;All Files (*)")
@@ -110,6 +113,7 @@ class Model:
 
 
     def get_data_processed(self, data_source=None, is_path=True):
+
         """
         Retrieves and processes data from a CSV file or DataFrame using predefined transformations.
 
@@ -140,19 +144,21 @@ class Model:
             processed_data = pipeline.transformer(data)
             return processed_data
 
-    def predictor(self, model:str, data_path=None):
+    def predictor(self, model:str, data_source=None, is_path=True):
 
         """
         Predicts outcomes using a specified machine learning model.
 
         - Selects the appropriate predictor based on the specified model code.
-        - Retrieves and processes data using the get_data_processed method.
+        - If is_path is True, calls the get_data method to obtain a DataFrame from the specified CSV file and processed with get_data_processed function.
+        - If is_path is False, assumes data_source is a DataFrame.
         - If data processing is successful, uses the selected predictor to make predictions.
         - Returns the predictions.
 
         Args:
             model (str): Code representing the desired machine learning model.
-            data_path (str, optional): Path to the CSV file.
+            data_source (str or pd.DataFrame, optional): Path to the CSV file or DataFrame.
+            is_path (bool, optional): If True, treat data_source as a file path. If False, treat data_source as a DataFrame.
 
         Returns:
             pd.DataFrame or None: The predictions DataFrame, or None if an error occurs during data retrieval or processing.
@@ -164,7 +170,10 @@ class Model:
             predictor =  predictors.get_model(model)
         if model == cfg_item("packages","predictors","model_3", "code"):
             predictor = predictors.get_model(model)
-        self.__data_processed = self.get_data_processed(data_path)
+        if is_path:
+            self.__data_processed = self.get_data_processed(data_source)
+        else:
+            data_source = data_source
         if self.__data_processed is None:
             return None
         self.__predictions = predictor.predict(self.__data_processed)
@@ -196,6 +205,7 @@ class Model:
         
 
     def get_test(self, target_column="is_fraud"):
+
         """
         Reads the specified target column from the test file and returns it as a pandas Series.
 
@@ -208,6 +218,7 @@ class Model:
         Returns:
             pd.Series: The specified target column from the test file.
         """
+
         test = pd.read_csv(self.__file_test, index_col=0)[target_column]
         return test
 
@@ -229,6 +240,7 @@ class Model:
             return cm
     
     def export_data(self, process_type:str, path=None):
+
         """
         Exports data to a CSV file.
 
