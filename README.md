@@ -4,6 +4,8 @@
 
 The Fraud Detection App is a comprehensive tool designed for fraud detection tasks, providing a user-friendly interface and programmable functionality for integration into Python scripts. This README provides an overview of the app's components, functionalities, and usage instructions.
 
+Please note that this app is part of a project for a master's degree program and is only workable with the following dataset: Fraud Detection Dataset.
+
 ## Installation
 
 This app is not in pipy repository, therefore the installation shall be locally. You can install the Fraud Detection App as a Python package using the following command:
