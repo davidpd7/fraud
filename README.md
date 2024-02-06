@@ -8,7 +8,7 @@ The Fraud Detection App is a comprehensive tool designed for fraud detection tas
 
 You can install the Fraud Detection App as a Python package using the following command:
 
-pip install `path package in local machine`
+pip install `path package in local machine`.
 
 ## Usage
 
