@@ -265,6 +265,8 @@ class Model:
         filename = cfg_item(process_type, "filename")
         if path is None:
             path, _ =  QFileDialog.getSaveFileName(None, "Select File Location", "", "CSV Files (*.csv);;All Files (*)")
+            if len(path) == 0:
+                return None
             return data.to_csv(path, index=False)
 
         return data.to_csv(os.path.join(path, filename), index=False)
