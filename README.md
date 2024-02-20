@@ -4,8 +4,8 @@
 
 The Fraud Detection App is a comprehensive tool designed for fraud detection tasks, providing a user-friendly interface and programmable functionality for integration into Python scripts. This README provides an overview of the app's components, functionalities, and usage instructions.
 
+## Mandatory Columns for Fraud Detection App
 
-Mandatory Columns for Fraud Detection App
 This application requires specific data columns for its machine learning models to function correctly. These columns are essential for the models to analyze patterns and accurately predict fraudulent transactions.
 
 Please ensure your data file includes the following mandatory columns:
