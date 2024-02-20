@@ -4,6 +4,29 @@
 
 The Fraud Detection App is a comprehensive tool designed for fraud detection tasks, providing a user-friendly interface and programmable functionality for integration into Python scripts. This README provides an overview of the app's components, functionalities, and usage instructions.
 
+
+Mandatory Columns for Fraud Detection App
+This application requires specific data columns for its machine learning models to function correctly. These columns are essential for the models to analyze patterns and accurately predict fraudulent transactions.
+
+Please ensure your data file includes the following mandatory columns:
+
+- trans_date_trans_time: This column combines the transaction date and time information, likely in a string format (e.g., "2019-01-01 12:00:00").
+- amt: This column represents the transaction amount, likely a numerical value (e.g., 100.00).
+- lat: This column represents the latitude coordinate of the transaction location.
+- long: This column represents the longitude coordinate of the transaction location.
+- city_pop: This column represents the population of the city where the transaction occurred.
+- unix_time: This column represents the transaction timestamp in Unix epoch format (e.g., 1546291200).
+- merch_lat: This column represents the latitude coordinate of the merchant location.
+- merch_long: This column represents the longitude coordinate of the merchant location.
+- dob: This column represents the customer's date of birth, likely in a string format (e.g., "1980-01-01").
+- gender: This column represents the customer's gender (e.g., "M" or "F").
+- category: This column represents the transaction category (e.g., "electronics", "food").
+  
+Please note:
+
+These columns are mandatory for subsequent prediction within the application's machine learning models.
+If your data is missing any of these mandatory columns, the app may not function correctly or produce inaccurate results. For best results, ensure your data adheres to the specified format and includes all required information
+
 Please note that this app is part of a project for a master's degree program and is only workable with the following dataset: Fraud Detection Dataset: https://www.kaggle.com/datasets/kartik2112/fraud-detection
 
 ## Installation
@@ -42,7 +65,7 @@ Retrieves and processes data from a CSV file or DataFrame using predefined trans
 
 ##### Parameters:
 - `data_source` (str or pd.DataFrame, optional): Path to the CSV file or DataFrame.
-- is_path (bool, optional): If True, treat data_source as a file path. If False, treat data_source as a DataFrame.
+- `is_path (bool`, optional): If True, treat data_source as a file path. If False, treat data_source as a DataFrame.
 
 ##### Returns:
 - `pd.DataFrame or None`: The processed DataFrame, or None if an error occurs during data retrieval or processing.
