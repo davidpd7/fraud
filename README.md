@@ -118,7 +118,7 @@ The Controller class acts as an intermediary between the Model and View, facilit
 ## Configuration
 The app utilizes a configuration file (config.json) for settings, including model paths, UI styles, and other parameters.
 
-## Mandatory Columns for Fraud Detection App
+## Mandatory Columns
 
 This application requires specific data columns for its machine learning models to function correctly. These columns are essential for the models to analyze patterns and accurately predict fraudulent transactions.
 
