@@ -154,7 +154,13 @@
                 "gender",
                 "category"
             ],
-            "non_mandatory": ["first", "last", "street", "city", "state", "job"]
+            "non_mandatory": [
+                            "first", 
+                            "last", 
+                            "street", 
+                            "city", 
+                            "state", 
+                            "job"]
         }
     },
     "transformed_data": {
